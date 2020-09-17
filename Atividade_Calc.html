@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body style="color: rgb(255, 255, 255);background-color: rgb(11, 69, 122);"> 
+    <div style="display: flex;flex-direction: column;align-items: center;">
+    <h2>Calculadora</h2>
+    
+    <p><b>Para converter informe um número em um dos campos abaixo.</b></p>
+
+    <b>Decimal: <input id="numero" type="number" placeholder="Insira o Número Decimal:"> </b><br>
+    <button onclick="convertBinario()"><b>Conversão Binário</b></button><br>
+    <button onclick="convertOctal()"><b>Conversão Octal</b></button><br>
+    <button onclick="convertHexa()"><b>Conversão Hexadecimal</b></button><br>
+    <button onclick="limpar()"><b>Limpar</b></button>
+
+    <p id="numeroBinario" style="display: none;">Binario: </p>
+    <p id="numeroOctal" style="display: none;">Octal: </p>
+    <p id="numeroHexa" style="display: none;">Hexadecimal: </p>
+    <div id="div_limpar"></div><br>
+</div>
+</body>
+</html>
+
+<script>
+
+
+    function convertBinario() {
+    var decimal = numero.value;
+    var binario = Number(decimal).toString(2);
+    numeroBinario.style.display = "block";  
+    numeroBinario.innerHTML = `Binário: ${binario}`;
+    }
+    function convertOctal() {
+        var decimal = numero.value;
+        var octal = Number(decimal).toString(8);
+        numeroOctal.style.display = "block";
+        numeroOctal.innerHTML = `Octal: ${octal}`;
+    }
+    function convertHexa() {
+        var decimal = numero.value;
+        var hexa = Number(decimal).toString(16);
+        numeroHexa.style.display = "block";
+        numeroHexa.innerHTML = `Hexadecimal: ${hexa}`;
+    }
+    function limpar() {
+    numero.value= "";
+    numeroBinario.innerHTML = "";
+    numeroOctal.innerHTML = "";
+    numeroHexa.innerHTML = "";
+    div_limpar.innerHTML = "";
+    }
+</script>
